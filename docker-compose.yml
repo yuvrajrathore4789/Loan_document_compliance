@@ -1,0 +1,24 @@
+# NOTE: these Docker files were written but could NOT be built or run in the environment where this project was
+# developed (no Docker daemon was available). Treat them as untested starting points.
+services:
+  backend:
+    build: { context: ., dockerfile: backend/Dockerfile }
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-sqlite:////data/loan_compliance.db}
+      SECRET_KEY: ${SECRET_KEY:?set SECRET_KEY in .env}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:8080}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      DEMO_ADMIN_PASSWORD: ${DEMO_ADMIN_PASSWORD:-Admin#Demo2026}
+      DEMO_REVIEWER_PASSWORD: ${DEMO_REVIEWER_PASSWORD:-Review#Demo2026}
+    volumes: ["appdata:/data"]
+    ports: ["8000:8000"]
+  frontend:
+    build: { context: ., dockerfile: frontend/Dockerfile }
+    depends_on: [backend]
+    ports: ["8080:80"]
+  postgres:            # optional: docker compose --profile postgres up; then set DATABASE_URL=postgresql+psycopg2://loan:loan@postgres:5432/loan
+    image: postgres:16-alpine
+    profiles: ["postgres"]
+    environment: { POSTGRES_USER: loan, POSTGRES_PASSWORD: loan, POSTGRES_DB: loan }
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+volumes: { appdata: {}, pgdata: {} }

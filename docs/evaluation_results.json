@@ -1,0 +1,163 @@
+{
+  "scenarios": {
+    "address_mismatch": {
+      "hit": 4,
+      "n": 4,
+      "extra_rules": {}
+    },
+    "anomalous_burst": {
+      "hit": 2,
+      "n": 2,
+      "extra_rules": {}
+    },
+    "anomalous_credit_spike": {
+      "hit": 2,
+      "n": 2,
+      "extra_rules": {}
+    },
+    "anomalous_large_credit": {
+      "hit": 3,
+      "n": 3,
+      "extra_rules": {}
+    },
+    "bank_holder_mismatch": {
+      "hit": 4,
+      "n": 4,
+      "extra_rules": {}
+    },
+    "clean": {
+      "hit": 30,
+      "n": 32,
+      "extra_rules": {
+        "R014": 2
+      }
+    },
+    "corrupted_pdf": {
+      "hit": 3,
+      "n": 3,
+      "extra_rules": {
+        "R015": 3,
+        "R005": 1
+      }
+    },
+    "duplicate_bank_account": {
+      "hit": 3,
+      "n": 3,
+      "extra_rules": {
+        "R014": 1
+      }
+    },
+    "duplicate_upload": {
+      "hit": 4,
+      "n": 4,
+      "extra_rules": {
+        "R014": 1
+      }
+    },
+    "income_mismatch": {
+      "hit": 3,
+      "n": 3,
+      "extra_rules": {}
+    },
+    "invalid_identifier": {
+      "hit": 3,
+      "n": 3,
+      "extra_rules": {
+        "R019": 3
+      }
+    },
+    "low_ocr": {
+      "hit": 4,
+      "n": 4,
+      "extra_rules": {
+        "R001": 3,
+        "R002": 2,
+        "R011": 3,
+        "R019": 1
+      }
+    },
+    "missing_bank_statement": {
+      "hit": 4,
+      "n": 4,
+      "extra_rules": {}
+    },
+    "missing_itr": {
+      "hit": 3,
+      "n": 3,
+      "extra_rules": {}
+    },
+    "missing_pan": {
+      "hit": 4,
+      "n": 4,
+      "extra_rules": {}
+    },
+    "missing_salary_month": {
+      "hit": 2,
+      "n": 2,
+      "extra_rules": {}
+    },
+    "name_mismatch": {
+      "hit": 5,
+      "n": 5,
+      "extra_rules": {}
+    },
+    "name_typo": {
+      "hit": 4,
+      "n": 4,
+      "extra_rules": {}
+    },
+    "prompt_injection": {
+      "hit": 3,
+      "n": 3,
+      "extra_rules": {}
+    },
+    "salary_mismatch": {
+      "hit": 4,
+      "n": 4,
+      "extra_rules": {}
+    },
+    "short_statement": {
+      "hit": 4,
+      "n": 4,
+      "extra_rules": {
+        "R014": 2
+      }
+    }
+  },
+  "clean_false_positive_apps": 2,
+  "clean_total": 32,
+  "detectors": {
+    "isolation_forest_alone": {
+      "precision": 0.009404388714733543,
+      "recall": 1.0,
+      "flagged": 319,
+      "tp": 3,
+      "fp": 316,
+      "fn": 0
+    },
+    "robust_z_alone": {
+      "precision": 0.375,
+      "recall": 1.0,
+      "flagged": 8,
+      "tp": 3,
+      "fp": 5,
+      "fn": 0
+    },
+    "simple_rule": {
+      "precision": 0.005145797598627788,
+      "recall": 1.0,
+      "flagged": 583,
+      "tp": 3,
+      "fp": 580,
+      "fn": 0
+    },
+    "combined (used in app)": {
+      "precision": 0.3,
+      "recall": 1.0,
+      "flagged": 10,
+      "tp": 3,
+      "fp": 7,
+      "fn": 0
+    }
+  }
+}

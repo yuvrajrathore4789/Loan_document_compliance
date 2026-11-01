@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { @apply bg-canvas text-ink antialiased; }
+@layer components {
+  .card { @apply rounded-lg border border-line bg-white p-5 shadow-sm; }
+  .btn { @apply inline-flex items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-primary { @apply btn bg-brand text-white hover:bg-brand-dark; }
+  .btn-ghost { @apply btn border border-line bg-white text-ink hover:bg-canvas; }
+  .input { @apply w-full rounded-md border border-line bg-white px-3 py-2 text-sm focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand; }
+  .th { @apply px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-ink-soft; }
+  .td { @apply px-3 py-2 text-sm; }
+}
